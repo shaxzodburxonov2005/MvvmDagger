@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    tools:context=".access1.SecondFragment">
+
+   <ImageView
+       android:scaleType="centerCrop"
+       android:id="@+id/cons_img"
+       app:layout_constraintBottom_toTopOf="@+id/nun"
+       app:layout_constraintRight_toRightOf="parent"
+       app:layout_constraintLeft_toLeftOf="parent"
+       app:layout_constraintTop_toTopOf="parent"
+       android:background="@drawable/consent"
+       android:layout_width="match_parent"
+       android:layout_height="350dp"/>
+
+   <TextView
+       android:textStyle="bold"
+       android:textColor="#333647"
+       android:textSize="22sp"
+       android:text="Nuntium"
+       app:layout_constraintLeft_toLeftOf="parent"
+       app:layout_constraintRight_toRightOf="parent"
+       app:layout_constraintBottom_toTopOf="@+id/title_desc"
+       app:layout_constraintTop_toBottomOf="@+id/cons_img"
+       android:id="@+id/nun"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"/>
+
+   <TextView
+       android:textSize="20sp"
+       app:layout_constraintLeft_toLeftOf="parent"
+       android:text="All news in one place, be the \n
+   first to know last news"
+       app:layout_constraintTop_toBottomOf="@+id/nun"
+       app:layout_constraintRight_toRightOf="parent"
+       app:layout_constraintBottom_toTopOf="@+id/card_desc"
+       android:id="@+id/title_desc"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"/>
+
+   <androidx.cardview.widget.CardView
+     android:layout_marginBottom="42dp"
+       android:layout_marginLeft="10dp"
+       android:layout_marginRight="10dp"
+       app:layout_constraintLeft_toLeftOf="parent"
+       app:layout_constraintRight_toRightOf="parent"
+
+       android:id="@+id/card_desc"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:cardCornerRadius="10dp"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+      <ImageButton
+          android:id="@+id/getbtn"
+          android:background="#475AD7"
+          android:padding="30dp"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"/>
+      <TextView
+          android:textStyle="bold"
+          android:textColor="@color/white"
+          android:textSize="18sp"
+          android:text="Get Started"
+          android:layout_gravity="center"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"/>
+
+   </androidx.cardview.widget.CardView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
