@@ -13,9 +13,6 @@
         <action
             android:id="@+id/action_splashFragment_to_firstFragment"
             app:destination="@id/firstFragment" />
-        <action
-            android:id="@+id/action_splashFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/firstFragment"
@@ -60,6 +57,76 @@
         android:id="@+id/homeFragment"
         android:name="com.example.mymvvmnuntium.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_categorysFragment"
+            app:destination="@id/categorysFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_dataFragment"
+            app:destination="@id/dataFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="com.example.mymvvmnuntium.AccountFragment"
+        android:label="fragment_account"
+        tools:layout="@layout/fragment_account" >
+        <action
+            android:id="@+id/action_accountFragment_to_languagesFragment"
+            app:destination="@id/languagesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/savedFragment"
+        android:name="com.example.mymvvmnuntium.SavedFragment"
+        android:label="fragment_saved"
+        tools:layout="@layout/fragment_saved" >
+        <action
+            android:id="@+id/action_savedFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+        <action
+            android:id="@+id/action_savedFragment_to_savedDataFragment"
+            app:destination="@id/savedDataFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/categorysFragment"
+        android:name="com.example.mymvvmnuntium.CategorysFragment"
+        android:label="fragment_categorys"
+        tools:layout="@layout/fragment_categorys" >
+        <action
+            android:id="@+id/action_categorysFragment_to_savedFragment"
+            app:destination="@id/savedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dataFragment"
+        android:name="com.example.mymvvmnuntium.DataFragment"
+        android:label="fragment_data"
+        tools:layout="@layout/fragment_data" />
+    <fragment
+        android:id="@+id/viewpagerHomeTabFragment"
+        android:name="com.example.mymvvmnuntium.viewpageradapter.ViewpagerHomeTabFragment"
+        android:label="fragment_viewpager_home_tab"
+        tools:layout="@layout/fragment_viewpager_home_tab" >
+        <action
+            android:id="@+id/action_viewpagerHomeTabFragment_to_dataFragment"
+            app:destination="@id/dataFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/languagesFragment"
+        android:name="com.example.mymvvmnuntium.LanguagesFragment"
+        android:label="fragment_languages"
+        tools:layout="@layout/fragment_languages" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.mymvvmnuntium.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/savedDataFragment"
+        android:name="com.example.mymvvmnuntium.SavedDataFragment"
+        android:label="fragment_saved_data"
+        tools:layout="@layout/fragment_saved_data" />
+
 
 </navigation>

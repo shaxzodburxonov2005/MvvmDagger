@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp"
+    android:layout_marginTop="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_img_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:scaleType="center"
+                android:id="@+id/img_card"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:background="@drawable/ic_launcher_background" />
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="180dp"
+            android:layout_height="0dp"
+            android:padding="0dp"
+            android:layout_marginLeft="10dp"
+            android:text="A Simple Trick For Creating \n Color Palettes Quickly"
+            android:textColor="#7C82A1"
+            android:textStyle="bold"
+            android:id="@+id/desc_tv"
+            app:layout_constraintLeft_toRightOf="@+id/card_img_save"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+
+            app:layout_constraintLeft_toRightOf="@+id/card_img_save"
+            app:layout_constraintRight_toLeftOf="@id/rv_save"
+            app:layout_constraintTop_toBottomOf="@+id/desc_tv"
+            android:id="@+id/source_tv"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <ImageView
+            android:src="@drawable/backstop_icon"
+            android:id="@+id/rv_save"
+            app:layout_constraintLeft_toRightOf="@id/source_tv"
+            app:layout_constraintTop_toBottomOf="@+id/desc_tv"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

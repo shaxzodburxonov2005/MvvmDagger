@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    style="@style/Screen"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".SavedFragment">
+
+    <TextView
+        style="@style/textsaved"
+        android:layout_marginTop="20dp"
+
+        android:textStyle="bold"
+        android:textSize="22sp"
+        android:text="Bookmarks"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:id="@+id/book"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        style="@style/textsaved"
+        android:id="@+id/saved_tv"
+        android:layout_marginTop="10dp"
+
+        android:textSize="17sp"
+        android:text="Saved articles to the library"
+        app:layout_constraintTop_toBottomOf="@+id/book"
+        app:layout_constraintLeft_toLeftOf="@+id/book"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:id="@+id/rv_saveBook"
+        android:visibility="gone"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/saved_tv"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="0dp">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        app:layout_constraintTop_toBottomOf="@+id/saved_tv"
+        android:id="@+id/btn_float"
+        android:src="@drawable/vector__10_"
+        android:backgroundTint="#EEF0FB"
+        app:backgroundTint="#EEF0FB"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+
+        android:id="@+id/text_save"
+        android:layout_margin="15dp"
+        style="@style/textsaved"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_float"
+        android:text="You haven't saved any articles\n
+       yet.Start reading and\n      bookmarking them now"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,30 +1,40 @@
 package com.example.mymvvmnuntium.adapter
 
+import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-
-import com.example.mymvvmnuntium.databasemodul.Post
+import com.bumptech.glide.Glide
+import com.example.mymvvmnuntium.R
 import com.example.mymvvmnuntium.databinding.ItemPostBinding
-import com.example.mymvvmnuntium.modul.Article
-import com.example.mymvvmnuntium.modul.News
+import com.example.mymvvmnuntium.databse.ArticleDB
+import com.example.mymvvmnuntium.modul.SelectedItem
+import com.example.mymvvmnuntium.modul.newss.Article
 
-class PostAdapter(var onItemClicked: (News, Int) -> Unit) :
-    ListAdapter<News, PostAdapter.PostViewHolder>(
-        DiffCallback
+class PostAdapter(
+    var context: Context,
+    val listDb: List<String>,
+    var clickItem:itemClick
+) :
+    ListAdapter<Article, PostAdapter.PostViewHolder>(
+        DiffCallBack()
     ) {
+    val listSelected = ArrayList<String>()
 
-    companion object {
-        private val DiffCallback = object : DiffUtil.ItemCallback<News>() {
-            override fun areItemsTheSame(oldItem: News, newItem: News): Boolean {
-                return oldItem.articles == newItem.articles
-            }
+    init {
+        listSelected.addAll(listDb)
+    }
 
-            override fun areContentsTheSame(oldItem: News, newItem: News): Boolean {
-                return oldItem == newItem
-            }
+    class DiffCallBack : DiffUtil.ItemCallback<Article>() {
+        override fun areItemsTheSame(oldItem: Article, newItem: Article): Boolean {
+            return oldItem.title == newItem.title
+        }
+
+        override fun areContentsTheSame(oldItem: Article, newItem: Article): Boolean {
+            return oldItem == newItem
         }
     }
 
@@ -42,19 +52,41 @@ class PostAdapter(var onItemClicked: (News, Int) -> Unit) :
         holder.bind(getItem(position), position)
     }
 
-    inner class PostViewHolder(
-        private var binding: ItemPostBinding
-    ) : RecyclerView.ViewHolder(binding.root) {
+    inner class PostViewHolder(val binding: ItemPostBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(post: News,position: Int) {
-            binding.apply {
-                tvName.text = post.articles[position].author
-                tvDescription.text=post.articles[position].title
-            }
-            binding.btnSave.setOnClickListener {
-                onItemClicked(post,position)
-            }
+        fun bind(article: Article, position: Int) {
+            Log.d("AAAA", "bind:$position $article ")
+            binding.let {
 
+                if (listDb.contains(article.title))
+                    it.save.setImageResource(R.drawable.backstop_icon)
+                else
+                    it.save.setImageResource(R.drawable.save_icon)
+
+                Glide.with(context).load(article.urlToImage).into(it.imgAll)
+                it.textAll.text = article.title
+
+                it.save.setOnClickListener { view ->
+                    if (listSelected.contains(article.title)) {
+                        it.save.setImageResource(R.drawable.save_icon)
+                        listSelected.remove(article.title)
+                    } else {
+                        it.save.setImageResource(R.drawable.backstop_icon)
+                        listSelected.add(article.title ?: "")
+                    }
+                    clickItem.save(article,position)
+
+                }
+                it.root.setOnClickListener {
+                    clickItem.rootI(article,position)
+                }
+
+            }
         }
+    }
+    interface itemClick{
+        fun rootI(article: Article,position: Int)
+        fun save(article: Article,position: Int)
     }
 }
